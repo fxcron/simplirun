@@ -956,6 +956,6 @@ if __name__ == '__main__':
     
     except Exception as error:
         log.append(2, f'Fatal error: {str(error)}')
-        print(f'\n\033[95m\rAn error occurred. See the log file {os.path.abspath(log.logfile)}')
+#        print(f'\n\033[95m\rAn error occurred. See the log file {os.path.abspath(log.logfile)}')
     
-    log.record()
+#    log.record()

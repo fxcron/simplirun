@@ -281,7 +281,7 @@ class EquipmentListParser:
         modules_config_sorted = sorted(s, key = itemgetter(1))
         modules_config_grouped = groupby(modules_config_sorted, key = itemgetter(1))
         self.modules_config_idx = {f'{m[1]}{i+1}':m[0] for k, g in modules_config_grouped for i, m in enumerate(g)}
-        
+
         
     def iter_equipments(self):
         """Display the busy symbols at the screen.
@@ -298,9 +298,9 @@ class EquipmentListParser:
         titles_eplist = titles_key + titles_equipment
         
         ws = self.workbook['设备列表']
-        print('& The maximum row is {}'.format(ws.max_row))
+        log.append(1, '\'{}\': The maximum row is {}.'.format(os.path.basename(self.list_file), ws.max_row))
         titles_sheet = [cell.value for cell in ws[1]]
-        
+
         titles_absence = [title for title in titles_eplist if title not in titles_sheet]
         if titles_absence:
             raise UserError(f'Column(s): {titles_absence} not found in {self.list_file}:{ws}')
